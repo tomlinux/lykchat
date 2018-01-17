@@ -262,3 +262,18 @@ class Wechat(Base):
             self.log2mongo_api.write(username, self.modname, msg, level='error')
             self.logger.error(username + msg + ' ，原因：' + str(result[1]))
         return HttpResponse(json.dumps(result), content_type="application/json")
+
+
+
+   def getip(self, request):
+       try:
+           url = r'http://www.trackip.net/'
+           r = requests.get(url)
+       except Exception as e:
+           print e
+
+       txt = r.text
+       ip = txt[txt.find('title') + 6:txt.find('/title') - 1]
+       # r = '115.193.218.179'
+       ip += ',60.191.37.251'
+       return ip

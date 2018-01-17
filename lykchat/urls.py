@@ -49,8 +49,6 @@ urlpatterns = [
     url(r'^wechat/logout', Wechat(mongoclient=mongoclient, redisclient=redisclient, log_mongoclient=log_mongoclient).logout),
     url(r'^wechat/check', Wechat(mongoclient=mongoclient, redisclient=redisclient, log_mongoclient=log_mongoclient).check),
     url(r'^wechat/sendmsg', Wechat(mongoclient=mongoclient, redisclient=redisclient, log_mongoclient=log_mongoclient).sendmsg),
-    
-    
-    
+    url(r'^wechat/getip',  Wechat(mongoclient=mongoclient, redisclient=redisclient, log_mongoclient=log_mongoclient).getip),
     url(r'^logging/$', User(mongoclient=mongoclient, redisclient=redisclient, log_mongoclient=log_mongoclient).get_logging, name='logging'),
 ]
